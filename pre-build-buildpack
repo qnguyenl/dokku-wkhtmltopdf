@@ -4,6 +4,8 @@ set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 APP="$1"; IMAGE="dokku/$APP"
 echo "-----> Installing wkhtmltox ..."
 COMMAND=$(cat <<EOF
+apt-add-repository --remove "deb http://apt.postgresql.org/pub/repos/apt bionic-pgdg main"
+apt-add-repository "deb http://apt-archive.postgresql.org/pub/repos/apt bionic-pgdg main"
 apt-get -y  update 
 apt-get install -y wget xfonts-base xfonts-75dpi libssl1.0-dev openssl
 cd /tmp && wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-3/wkhtmltox-0.12.6-3.archlinux-x86_64.pkg.tar.xz
