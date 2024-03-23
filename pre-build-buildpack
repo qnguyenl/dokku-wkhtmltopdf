@@ -5,6 +5,7 @@ APP="$1"; IMAGE="dokku/$APP"
 echo "----->Applivi Installing wkhtmltox ..."
 COMMAND=$(cat <<EOF
 apt-get install -y wget xfonts-base xfonts-75dpi libssl1.0-dev openssl
+echo "-----> wkhtmltox 1"
 cd /tmp && wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-3/wkhtmltox-0.12.6-3.archlinux-x86_64.pkg.tar.xz
 cd /tmp && tar xf wkhtmltox-0.12.6-3.archlinux-x86_64.pkg.tar.xz
 mv /tmp/wkhtmltox /opt/
